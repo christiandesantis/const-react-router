@@ -15,7 +15,7 @@ Built on top of the official React Router default template with carefully select
 - 🎉 TailwindCSS for styling
 
 ### Enhanced Features
-- 🗂️ **Enhanced Directory Structure** - File-based routing with automatic layout inheritance
+- 🗂️ **Enhanced File-based Routing** - Custom nested directory routing with automatic layout inheritance
 - 🧹 **Biome** - Fast, modern linter and formatter replacing ESLint + Prettier
 - 🎭 **Lucide React** - Beautiful, customizable icon library
 - ✅ **Zod** - Runtime type validation and schema parsing
@@ -139,6 +139,32 @@ If you prefer not to use the React Compiler RC, you can remove it:
 # Remove React Compiler dependencies
 pnpm remove babel-plugin-react-compiler eslint-plugin-react-hooks
 ```
+
+## Enhanced File-based Routing
+
+This template extends React Router 7's default file-based routing with support for nested directory structures and automatic layout inheritance - a feature not supported by default in React Router 7.
+
+### How It Works
+
+The custom routing system (`app/routes.ts`) enables you to organize routes in nested directories while automatically inheriting layouts from parent routes:
+
+**Layout Definition:**
+- `_app.tsx` - Defines the main application layout
+- `_auth.tsx` - Defines an authentication layout
+
+**Nested Directory Routes:**
+- `_app/index.tsx` → `/` (inherits `_app` layout)
+- `_app/dashboard.tsx` → `/dashboard` (inherits `_app` layout)
+- `_app/settings/index.tsx` → `/settings` (inherits `_app` layout)
+- `_app/settings/profile.tsx` → `/settings/profile` (inherits `_app` layout)
+
+**Key Benefits:**
+- **Automatic Layout Inheritance** - Routes automatically inherit the layout from their parent directory prefix
+- **Unlimited Nesting** - Support for deeply nested route structures
+- **Clean Organization** - Group related routes in directories while maintaining flat URL structures
+- **Type Safety** - Full TypeScript support with proper route typing
+
+This enhancement allows for better code organization and more intuitive file structures compared to React Router 7's default flat routing approach.
 
 ## Hooks
 

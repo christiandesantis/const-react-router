@@ -25,6 +25,7 @@ Built on top of the official React Router default template with carefully select
 - 🌙 **Dark Mode Hook** - Built-in dark mode state management
 - 📱 **Mobile Detection Hook** - Responsive design utilities
 - 🎨 **Shadcn/UI Compatible** - Ready for shadcn/ui component integration
+- ⚡️ **React Compiler (RC)** - Includes React Compiler release candidate for automatic optimization
 
 ### Tech Stack
 - **Package Manager**: `pnpm`
@@ -123,6 +124,21 @@ Make sure to deploy the output of `pnpm build`
 ## Environment Variables
 
 Environment variables are handled with type safety using Zod validation in `app/lib/env.ts`. Add your variables to `.env` and define their schema for runtime validation.
+
+## React Compiler (Release Candidate)
+
+This template includes the React Compiler release candidate (`babel-plugin-react-compiler: 19.1.0-rc.2`) which provides automatic optimization for React components. 
+
+> ⚠️ **Note**: This is a release candidate version and may have stability issues. It's currently included as a development dependency but not actively configured.
+
+### Removing React Compiler (Optional)
+
+If you prefer not to use the React Compiler RC, you can remove it:
+
+```bash
+# Remove React Compiler dependencies
+pnpm remove babel-plugin-react-compiler eslint-plugin-react-hooks
+```
 
 ## Hooks
 

@@ -1,9 +1,10 @@
+// Consider using a specific icon import instead of importing all icons
 import * as LucideIcons from "lucide-react";
 import type { ComponentType } from "react";
 import { NavLink } from "react-router";
-import { BrandTitle } from "./ui/brand-title";
+import { Title } from "./ui/title";
 
-interface BrandTitleWrapperProps {
+interface AppTitleProps {
 	title?: string;
 	iconName?: string;
 	size?: "responsive" | "xs" | "sm" | "md" | "lg" | "xl";
@@ -11,13 +12,13 @@ interface BrandTitleWrapperProps {
 	className?: string;
 }
 
-export const BrandTitleWrapper = ({
+export const AppTitle = ({
 	title,
 	iconName,
 	size = "responsive",
 	to,
 	className,
-}: BrandTitleWrapperProps) => {
+}: AppTitleProps) => {
 	const IconComponent = LucideIcons[iconName as keyof typeof LucideIcons] as
 		| ComponentType<{ className?: string }>
 		| undefined;
@@ -30,9 +31,9 @@ export const BrandTitleWrapper = ({
 	};
 	return (
 		<NavLink to={to || "/"}>
-			<BrandTitle icon={IconWrapper} size={size} className={className}>
+			<Title icon={IconWrapper} size={size} className={className}>
 				{title}
-			</BrandTitle>
+			</Title>
 		</NavLink>
 	);
 };

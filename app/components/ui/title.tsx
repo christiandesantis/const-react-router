@@ -1,19 +1,19 @@
 import type { ComponentType, ReactNode } from "react";
 import { cn } from "~/lib/utils";
 
-interface BrandTitleProps {
+interface TitleProps {
 	children: ReactNode;
 	className?: string;
 	icon?: ComponentType<{ className?: string }>;
 	size?: "responsive" | "xs" | "sm" | "md" | "lg" | "xl";
 }
 
-export const BrandTitle = ({
+export const Title = ({
 	children,
 	className,
 	icon: Icon,
 	size = "responsive",
-}: BrandTitleProps) => {
+}: TitleProps) => {
 	const shadow =
 		"text-shadow:_0_1px_0_rgb(0_0_0_/_40%),_0_2px_0_rgb(0_0_0_/_30%),_0_3px_0_rgb(0_0_0_/_20%)";
 

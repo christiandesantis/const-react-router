@@ -1,11 +1,5 @@
 import { type ReactNode, useMemo } from "react";
-import {
-	Links,
-	Meta,
-	Outlet,
-	Scripts,
-	ScrollRestoration,
-} from "react-router";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import type { Route } from "./+types/root";
 import useDark from "./hooks/use-dark";
 import "./styles/app.css";

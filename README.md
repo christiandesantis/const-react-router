@@ -142,29 +142,29 @@ pnpm remove babel-plugin-react-compiler eslint-plugin-react-hooks
 
 ## Enhanced File-based Routing
 
-This template extends React Router 7's default file-based routing with support for nested directory structures and automatic layout inheritance - a feature not supported by default in React Router 7.
+This template uses [`fs-routes-next`](https://www.npmjs.com/package/fs-routes-next) for enhanced file-based routing with support for nested directories, automatic layout inheritance, and layout overrides at any nesting level - features not supported by default in React Router 7.
 
-### How It Works
+### Supported File Structure
 
-The custom routing system (`app/routes.ts`) enables you to organize routes in nested directories while automatically inheriting layouts from parent routes:
+```
+routes/
+├── _index.tsx                 # Root page → "/"
+├── _app.tsx                   # App layout
+├── _app.dashboard/            # Dashboard routes
+│   ├── _users.tsx             # Layout override
+│   ├── users.tsx              # Uses _users.tsx layout → "/dashboard/users"
+│   ├── index.tsx              # Uses app layout → "/dashboard"
+│   └── settings.tsx           # Uses app layout → "/dashboard/settings"
+```
 
-**Layout Definition:**
-- `_app.tsx` - Defines the main application layout
-- `_auth.tsx` - Defines an authentication layout
+### Key Benefits
 
-**Nested Directory Routes:**
-- `_app/index.tsx` → `/` (inherits `_app` layout)
-- `_app/dashboard.tsx` → `/dashboard` (inherits `_app` layout)
-- `_app/settings/index.tsx` → `/settings` (inherits `_app` layout)
-- `_app/settings/profile.tsx` → `/settings/profile` (inherits `_app` layout)
-
-**Key Benefits:**
-- **Automatic Layout Inheritance** - Routes automatically inherit the layout from their parent directory prefix
-- **Unlimited Nesting** - Support for deeply nested route structures
-- **Clean Organization** - Group related routes in directories while maintaining flat URL structures
+- **Nested Directory Support** - Organize routes in deeply nested folder structures
+- **Automatic Layout Inheritance** - Routes inherit layouts based on parent directory
+- **Layout Overrides** - Override layouts at any nesting level
 - **Type Safety** - Full TypeScript support with proper route typing
 
-This enhancement allows for better code organization and more intuitive file structures compared to React Router 7's default flat routing approach.
+For detailed documentation on routing patterns and advanced features, see the [`fs-routes-next` documentation](https://www.npmjs.com/package/fs-routes-next).
 
 ## Hooks
 
@@ -209,4 +209,4 @@ This template comes with [Tailwind CSS v4](https://tailwindcss.com/) and [TW Ani
 
 ---
 
-Built with ❤️ using React Router and enhanced by Constech.dev.
+Built from React Router and enhanced by Constech.dev.

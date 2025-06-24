@@ -5,7 +5,7 @@ import { z } from "zod";
  * All environment variables should be defined here
  */
 const envSchema = z.object({
-	APP_NAME: z.string().default("SaasApp"),
+	APP_NAME: z.string().default("App"),
 	APP_ICON: z.string().default("Blocks"),
 });
 
